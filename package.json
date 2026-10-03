@@ -14,7 +14,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    ".scss": [
+    ".{html, scss, md}": [
       "prettier --write"
     ]
   },
@@ -23,6 +23,7 @@
     "@commitlint/config-conventional": "^21.2.3",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
+    "prettier": "^3.9.9",
     "sass": "^1.105.1",
     "vite": "^8.3.0"
   }
