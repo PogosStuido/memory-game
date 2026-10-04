@@ -1,0 +1,64 @@
+// @use './variables.scss' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+figure,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+ol[role='list'],
+ul[role='list'] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+html {
+  font-family: Inter, sans-serif;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 20px;
+
+  // background-color: var(--background-page);
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .container {
+    padding: 0;
+    width: 1360px;
+  }
+}

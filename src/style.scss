@@ -1,3 +1,6 @@
-﻿body {
+﻿@use 'modern-normalize/modern-normalize.css';
+@use './sass/basic';
+
+body {
   background-color: red;
 }
