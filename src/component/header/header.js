@@ -9,6 +9,7 @@ export function renderHeader() {
 
   const newGameButton = document.createElement('button');
   newGameButton.className = 'header__button';
+  newGameButton.id = 'new-button';
   newGameButton.type = 'button';
   newGameButton.innerText = 'новая игра';
 
