@@ -1,15 +1,36 @@
 ﻿import './cards.scss';
 import { modalWindow } from '../feature/modal-window/modal-window.js';
 
+import capvincible from '../../assets/invincible-variants/capvincible.jpeg';
+import gogglesvincible from '../../assets/invincible-variants/gogglesvincible.jpeg';
+import hairvincible from '../../assets/invincible-variants/hairvincible.jpeg';
+import hoodvincible from '../../assets/invincible-variants/hoodvincible.jpeg';
+import movincihawk from '../../assets/invincible-variants/movincihawk.jpeg';
+import mustachible from '../../assets/invincible-variants/mustachible.jpeg';
+import wolfcutible from '../../assets/invincible-variants/wolfcutible.jpeg';
+import omnivincible from '../../assets/invincible-variants/omnivincible.jpeg';
+
 export function renderCards() {
   const existingCards = document.querySelector('.cards');
   if (existingCards) {
     existingCards.remove();
   }
 
-  const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
-  // const emojis = ['🍎'];
-  const doubledEmojis = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
+  const invincibleVariables = [
+    capvincible,
+    gogglesvincible,
+    hairvincible,
+    hoodvincible,
+    movincihawk,
+    mustachible,
+    wolfcutible,
+    omnivincible,
+  ];
+
+  const doubledInvincibleVariants = [
+    ...invincibleVariables,
+    ...invincibleVariables,
+  ].sort(() => 0.5 - Math.random());
 
   const scoreDisplay = document.querySelector('#score');
   if (scoreDisplay) {
@@ -26,7 +47,7 @@ export function renderCards() {
   let firstCard = null;
   let lockBoard = false;
   let matchesFound = 0;
-  const totalPairs = emojis.length;
+  const totalPairs = invincibleVariables.length;
 
   const mainElement = document.createElement('main');
   mainElement.className = 'cards';
@@ -34,11 +55,16 @@ export function renderCards() {
   const cardsBoard = document.createElement('div');
   cardsBoard.className = 'cards__board';
 
-  doubledEmojis.forEach((emoji) => {
+  doubledInvincibleVariants.forEach((imgUrl) => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.dataset.emoji = emoji;
-    card.textContent = '';
+    card.dataset.image = imgUrl;
+
+    const imgElement = document.createElement('img');
+    imgElement.className = 'card__image';
+    imgElement.style.display = 'none';
+    card.appendChild(imgElement);
+
     card.onclick = () => revealCard(card);
     cardsBoard.appendChild(card);
   });
@@ -48,14 +74,16 @@ export function renderCards() {
       return;
     }
 
+    const cardImg = card.querySelector('.card__image');
     card.classList.add('revealed');
-    card.textContent = card.dataset.emoji;
+    cardImg.src = card.dataset.image;
+    cardImg.style.display = 'block';
 
-    // Клик по первой карточке
     if (!firstCard) {
       firstCard = card;
       return;
     }
+
     movesCount++;
     if (attemptDisplay) {
       attemptDisplay.textContent = `попыток: ${movesCount}`;
@@ -63,7 +91,7 @@ export function renderCards() {
 
     lockBoard = true;
 
-    if (firstCard.dataset.emoji === card.dataset.emoji) {
+    if (firstCard.dataset.image === card.dataset.image) {
       firstCard.classList.add('matched');
       card.classList.add('matched');
       score++;
@@ -82,10 +110,16 @@ export function renderCards() {
       resetTurn();
     } else {
       setTimeout(() => {
+        const firstImg = firstCard.querySelector('.card__image');
+
         firstCard.classList.remove('revealed');
         card.classList.remove('revealed');
-        firstCard.textContent = '';
-        card.textContent = '';
+
+        firstImg.style.display = 'none';
+        cardImg.style.display = 'none';
+        firstImg.src = '';
+        cardImg.src = '';
+
         resetTurn();
       }, 800);
     }
@@ -96,9 +130,9 @@ export function renderCards() {
   }
 
   const newGameButton = document.querySelector('#new-button');
-  newGameButton.addEventListener('click', () => {
-    renderCards();
-  });
+  if (newGameButton) {
+    newGameButton.onclick = () => renderCards();
+  }
 
   mainElement.append(cardsBoard);
   document.body.append(mainElement);
