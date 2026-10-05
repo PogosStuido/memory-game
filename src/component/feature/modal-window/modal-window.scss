@@ -1,0 +1,48 @@
+﻿@use "../../../sass/variables" as *;
+
+@use '../../../sass/mixins' as *;
+
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  width: 720px;
+  height: 300px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  justify-content: center;
+  align-items: center;
+  background-color: $pastel-pink;
+  border-radius: 50px;
+
+  &__button {
+    @include buttons;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cotton-candy;
+    }
+  }
+
+  &__info {
+    padding: 17px;
+    width: 520px;
+    display: flex;
+    justify-content: center;
+    color: $soft-blush;
+    font-size: 22px;
+    background-color: $petal-rouge;
+  }
+}

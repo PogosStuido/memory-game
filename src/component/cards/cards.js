@@ -1,7 +1,10 @@
 ﻿import './cards.scss';
+import { modalWindow } from '../feature/modal-window/modal-window.js';
 
+const renderModal = modalWindow();
 export function renderCards() {
-  const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
+  // const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
+  const emojis = ['🍎'];
   const doubledEmojis = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
   const scoreDisplay = document.querySelector('.header__score');
 
@@ -53,7 +56,9 @@ export function renderCards() {
       }
 
       if (matchesFound === totalPairs) {
-        setTimeout(() => alert('Вы выиграли!'), 200);
+        setTimeout(() => {
+          document.body.append(renderModal);
+        }, 200);
       }
       resetTurn();
     } else {
