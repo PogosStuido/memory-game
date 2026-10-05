@@ -95,6 +95,11 @@ export function renderCards() {
     [firstCard, lockBoard] = [null, false];
   }
 
+  const newGameButton = document.querySelector('#new-button');
+  newGameButton.addEventListener('click', () => {
+    renderCards();
+  });
+
   mainElement.append(cardsBoard);
   document.body.append(mainElement);
 }
