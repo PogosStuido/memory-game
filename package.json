@@ -1,0 +1,49 @@
+{
+  "name": "memory-game",
+  "version": "0.0.0",
+  "homepage": "https://pogosstuido.github.io/memory-game/",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "gh-pages -d dist -m \"chore: update deploy\"",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
+    "format": "prettier . --write",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:fix": "npm run lint:js:fix && npm run lint:scss:fix && npm run format"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    ".{html,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.13.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "modern-normalize": "^3.0.1",
+    "prettier": "^3.9.9",
+    "sass": "^1.105.1",
+    "stylelint": "^17.16.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "vite": "^8.3.0"
+  }
+}
