@@ -1,6 +1,6 @@
 ﻿import './modal-window.scss';
 
-export function modalWindow(movesCount = 0) {
+export function modalWindow(movesCount = 0, onRestart) {
   const overlay = document.createElement('div');
   overlay.className = 'modal__overlay';
 
@@ -19,6 +19,13 @@ export function modalWindow(movesCount = 0) {
   newButtonModal.className = 'modal__button';
   newButtonModal.type = 'button';
   newButtonModal.textContent = 'новая игра';
+
+  newButtonModal.addEventListener('click', () => {
+    overlay.remove();
+    if (typeof onRestart === 'function') {
+      onRestart();
+    }
+  });
 
   const closeButton = document.createElement('button');
   closeButton.className = 'modal__button';

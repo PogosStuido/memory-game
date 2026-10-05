@@ -2,10 +2,19 @@
 import { modalWindow } from '../feature/modal-window/modal-window.js';
 
 export function renderCards() {
-  // const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
-  const emojis = ['🍎'];
+  const existingCards = document.querySelector('.cards');
+  if (existingCards) {
+    existingCards.remove();
+  }
+
+  const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
+  // const emojis = ['🍎'];
   const doubledEmojis = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
+
   const scoreDisplay = document.querySelector('.header__score');
+  if (scoreDisplay) {
+    scoreDisplay.textContent = 'счет: 0';
+  }
 
   let score = 0;
   let movesCount = 0;
@@ -57,7 +66,7 @@ export function renderCards() {
 
       if (matchesFound === totalPairs) {
         setTimeout(() => {
-          const renderModal = modalWindow(movesCount);
+          const renderModal = modalWindow(movesCount, () => renderCards());
           document.body.append(renderModal);
         }, 200);
       }
