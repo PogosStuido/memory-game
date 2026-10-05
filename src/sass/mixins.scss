@@ -1,0 +1,15 @@
+﻿@use "variables" as *;
+
+@mixin buttons {
+  padding: 19px 0;
+  width: 258.5px;
+  height: 60px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background-color: $petal-rouge;
+  color: $soft-blush;
+  font-size: 22px;
+  text-align: center;
+  text-transform: uppercase;
+}

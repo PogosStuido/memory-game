@@ -1,0 +1,35 @@
+﻿@use "../../sass/variables" as *;
+
+@use '../../sass/mixins' as *;
+
+.header {
+  position: relative;
+  margin: 20px auto 0;
+  padding: 20px 36px;
+  width: 600px;
+  height: 175px;
+  border-radius: 50px 50px 0 0;
+  background-color: $pastel-pink;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  z-index: 10;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    @include buttons;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cotton-candy;
+    }
+  }
+
+  &__score {
+    @include buttons;
+    margin: 20px auto;
+  }
+}
