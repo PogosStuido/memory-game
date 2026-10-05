@@ -1,7 +1,6 @@
 ﻿import './cards.scss';
 import { modalWindow } from '../feature/modal-window/modal-window.js';
 
-const renderModal = modalWindow();
 export function renderCards() {
   // const emojis = ['🍎', '🍌', '🍇', '🍒', '🍉', '🍍', '🧐', '💣'];
   const emojis = ['🍎'];
@@ -9,6 +8,7 @@ export function renderCards() {
   const scoreDisplay = document.querySelector('.header__score');
 
   let score = 0;
+  let movesCount = 0;
   let firstCard = null;
   let lockBoard = false;
   let matchesFound = 0;
@@ -42,7 +42,7 @@ export function renderCards() {
       firstCard = card;
       return;
     }
-
+    movesCount++;
     lockBoard = true;
 
     if (firstCard.dataset.emoji === card.dataset.emoji) {
@@ -57,6 +57,7 @@ export function renderCards() {
 
       if (matchesFound === totalPairs) {
         setTimeout(() => {
+          const renderModal = modalWindow(movesCount);
           document.body.append(renderModal);
         }, 200);
       }

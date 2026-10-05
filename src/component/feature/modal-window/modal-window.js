@@ -11,6 +11,10 @@ export function modalWindow(movesCount = 0) {
   winInfo.className = 'modal__info';
   winInfo.textContent = `Количество ходов: ${movesCount}`;
 
+  const winMessage = document.createElement('div');
+  winMessage.className = 'modal__info';
+  winMessage.textContent = `Мои поздравления! Ты нашел все одинаковые карточки!`;
+
   const newButtonModal = document.createElement('button');
   newButtonModal.className = 'modal__button';
   newButtonModal.type = 'button';
@@ -21,7 +25,7 @@ export function modalWindow(movesCount = 0) {
   closeButton.type = 'button';
   closeButton.textContent = 'закрыть';
 
-  modalElement.append(winInfo, newButtonModal, closeButton);
+  modalElement.append(winInfo, winMessage, newButtonModal, closeButton);
   overlay.append(modalElement);
 
   closeButton.addEventListener('click', () => {
