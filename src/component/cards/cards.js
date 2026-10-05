@@ -11,9 +11,14 @@ export function renderCards() {
   // const emojis = ['🍎'];
   const doubledEmojis = [...emojis, ...emojis].sort(() => 0.5 - Math.random());
 
-  const scoreDisplay = document.querySelector('.header__score');
+  const scoreDisplay = document.querySelector('#score');
   if (scoreDisplay) {
     scoreDisplay.textContent = 'счет: 0';
+  }
+
+  const attemptDisplay = document.querySelector('#attempts');
+  if (attemptDisplay) {
+    attemptDisplay.textContent = 'попыток: 0';
   }
 
   let score = 0;
@@ -52,6 +57,10 @@ export function renderCards() {
       return;
     }
     movesCount++;
+    if (attemptDisplay) {
+      attemptDisplay.textContent = `попыток: ${movesCount}`;
+    }
+
     lockBoard = true;
 
     if (firstCard.dataset.emoji === card.dataset.emoji) {

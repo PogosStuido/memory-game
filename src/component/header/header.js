@@ -20,11 +20,18 @@ export function renderHeader() {
 
   const score = document.createElement('div');
   score.className = 'header__score';
+  score.id = 'score';
   score.type = 'button';
   score.innerText = 'счет: 0';
 
-  buttonWrapper.append(newGameButton, tableButton);
-  headerElement.append(buttonWrapper, score);
+  const attempts = document.createElement('div');
+  attempts.className = 'header__score';
+  attempts.id = 'attempts';
+  attempts.type = 'button';
+  attempts.innerText = 'попыток: 0';
+
+  buttonWrapper.append(newGameButton, tableButton, attempts, score);
+  headerElement.append(buttonWrapper);
   document.body.append(headerElement);
 }
 
