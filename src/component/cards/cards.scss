@@ -5,7 +5,7 @@
   width: 600px;
   height: 600px;
   border-radius: 0 0 50px 50px;
-  background-color: $pastel-pink;
+  background-color: $blue;
 
   &__board {
     padding: 36px;
@@ -18,7 +18,7 @@
 .card {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: $petal-rouge;
+  background-color: $light-yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +38,10 @@
 }
 
 .card.revealed {
-  background-color: $cherry-blossom;
+  background-color: $orange;
 }
 
 .card.matched {
-  background-color: $cherry-blossom;
+  background-color: $orange;
   cursor: default;
 }
