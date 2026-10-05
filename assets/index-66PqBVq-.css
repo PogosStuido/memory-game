@@ -217,7 +217,7 @@ html {
 
 body {
   padding-top: 20px;
-  background-color: #ffe5ec;
+  background-color: #e0f3f9;
 }.header {
   position: relative;
   margin: 20px auto 0;
@@ -225,7 +225,7 @@ body {
   width: 600px;
   height: 175px;
   border-radius: 50px 50px 0 0;
-  background-color: #ffc2d1;
+  background-color: #25a1d5;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
@@ -241,8 +241,8 @@ body {
   border: none;
   border-radius: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  background-color: #fb6f92;
-  color: #ffe5ec;
+  background-color: #fedf0b;
+  color: #25a1d5;
   font-size: 22px;
   text-align: center;
   text-transform: uppercase;
@@ -250,7 +250,7 @@ body {
 }
 .header__button:hover {
   cursor: pointer;
-  background-color: #ff8fab;
+  background-color: #f1b818;
 }
 .header__score {
   padding: 19px 0;
@@ -259,8 +259,8 @@ body {
   border: none;
   border-radius: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  background-color: #fb6f92;
-  color: #ffe5ec;
+  background-color: #fedf0b;
+  color: #25a1d5;
   font-size: 22px;
   text-align: center;
   text-transform: uppercase;
@@ -270,7 +270,7 @@ body {
   width: 600px;
   height: 600px;
   border-radius: 0 0 50px 50px;
-  background-color: #ffc2d1;
+  background-color: #25a1d5;
 }
 .cards__board {
   padding: 36px;
@@ -282,24 +282,30 @@ body {
 .card {
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: #fb6f92;
-  color: white;
+  background-color: #fedf0b;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  font-size: 2rem;
   cursor: pointer;
   user-select: none;
+  overflow: hidden;
   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.card__image {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .card.revealed {
-  background-color: #ffb3c6;
+  background-color: #f1b818;
 }
 
 .card.matched {
-  background-color: #ffb3c6;
+  background-color: #f1b818;
   cursor: default;
 }.modal__overlay {
   position: fixed;
@@ -321,7 +327,7 @@ body {
   gap: 34px;
   justify-content: center;
   align-items: center;
-  background-color: #ffc2d1;
+  background-color: #25a1d5;
   border-radius: 50px;
 }
 .modal__button {
@@ -331,15 +337,15 @@ body {
   border: none;
   border-radius: 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  background-color: #fb6f92;
-  color: #ffe5ec;
+  background-color: #fedf0b;
+  color: #25a1d5;
   font-size: 22px;
   text-align: center;
   text-transform: uppercase;
 }
 .modal__button:hover {
   cursor: pointer;
-  background-color: #ff8fab;
+  background-color: #e2a732;
 }
 .modal__info {
   padding: 17px;
@@ -347,9 +353,8 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
-  color: #ffe5ec;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  color: #25a1d5;
   text-transform: uppercase;
   font-size: 22px;
-  background-color: #fb6f92;
+  background-color: #fedf0b;
 }
